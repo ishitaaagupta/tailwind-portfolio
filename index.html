@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #1788ae;
+      }
+
+      .swiper-pagination-bullet {
+        background-color: #23b9eb;
+      }
+    </style>
+    <script src="./matter.js" defer></script>
+  </head>
+
+  <body class="bg-[#111] text-white font-['Nunito']">
+    <section class="flex flex-col justify-between h-screen">
+      <header
+        class="z-10 pointer-events-none flex items-center justify-between w-full px-4 mt-4 max-w-screen-xl mx-auto"
+      >
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cursive stem of "i" with a thick, smooth curve -->
+        <path d="M50 60 C45 45, 55 30, 50 20" stroke="white" stroke-width="8" stroke-linecap="round" />
+        
+        <!-- Dot of "i" in a cursive, rounded style -->
+        <circle cx="50" cy="10" r="5" fill="white" />
+    </svg>
+    
+        </svg>
+        <div 
+        
+        class="flex gap-4 pointer-events-auto">
+         
+          <a href="tel:9610814790"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-phone"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+          ></a>
+          <a
+            href="https://wa.me/9610814790?text=Hi, How are you?"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="whatsapp"
+              class="svg-inline--fa fa-whatsapp fa-w-14"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+      <div class="absolute inset-0 hidden md:block" id="wrapper-canvas"></div>
+      <div class="flex -mt-10 relative">
+        <div class="w-full px-4 max-w-screen-xl mx-auto">
+            <!-- <svg
+            viewBox="0 0 406 368"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="pointer-events-none absolute top-0 left-1/2 -translate-y-[80px] sm:-translate-y-[180px] -translate-x-1/2 w-[300px] sm:w-[400px] md:w-[650px]"
+          >
+        
+            <path d="M11.52 53.96C9.536 53.96 7.648 53.416 5.856 52.328C4.064 51.176 2.72 49.448 1.824 47.144C1.504 46.312 1.28 45.448 1.152 44.552C1.024 43.592 0.96 42.664 0.96 41.768C0.96 40.872 1.12 40.424 1.44 40.424C1.824 40.424 2.016 40.68 2.016 41.192C2.016 44.2 2.752 46.472 4.224 48.008C5.76 49.544 7.648 50.312 9.888 50.312C12.128 50.312 14.304 49.672 16.416 48.392C18.528 47.112 20.48 45.48 22.272 43.496C25.152 40.296 27.616 37.064 29.664 33.8C31.712 30.472 33.568 27.08 35.232 23.624C36.96 20.104 38.688 16.456 40.416 12.68C41.312 10.76 42.4 8.968 43.68 7.304C45.024 5.576 46.496 4.2 48.096 3.17599H45.216C44.256 3.17599 42.912 3.24 41.184 3.368C39.52 3.496 37.824 3.784 36.096 4.232C34.368 4.68 32.928 5.416 31.776 6.44C30.624 7.464 30.112 8.84 30.24 10.568C30.304 11.08 30.496 11.784 30.816 12.68C31.136 13.512 31.328 14.024 31.392 14.216L30.432 14.984C30.048 14.28 29.568 13.48 28.992 12.584C28.416 11.624 27.872 10.696 27.36 9.8C26.912 8.904 26.656 8.232 26.592 7.784C26.528 7.144 26.56 6.312 26.688 5.288C26.88 4.264 27.392 3.368 28.224 2.6C29.184 1.768 30.496 1.224 32.16 0.967995C33.888 0.711998 35.648 0.584 37.44 0.584C39.168 0.584 40.832 0.647999 42.432 0.775997C44.032 0.903996 45.344 0.967995 46.368 0.967995L61.728 0.871996L60.48 2.312C59.84 2.312 58.912 2.376 57.696 2.504C56.544 2.568 55.328 2.728 54.048 2.984C52.512 3.24 50.752 4.104 48.768 5.576C46.784 6.984 45.088 8.872 43.68 11.24L42.816 12.68C41.856 14.856 40.768 17.448 39.552 20.456C38.336 23.464 36.96 26.632 35.424 29.96C33.952 33.288 32.32 36.52 30.528 39.656C28.736 42.728 26.752 45.416 24.576 47.72C22.976 49.448 20.96 50.92 18.528 52.136C16.096 53.352 13.76 53.96 11.52 53.96Z" stroke="#1F2667" stroke-opacity="0.9" stroke-width="4"/>
+            <path d="M39.072 49.176C38.2613 49.176 37.7067 48.9413 37.408 48.472C37.2373 48.216 37.152 47.9387 37.152 47.64C37.152 47.2987 37.3013 46.8933 37.6 46.424C37.8987 45.9547 38.432 45.528 39.2 45.144C39.2853 45.1013 39.6053 44.9093 40.16 44.568C40.7573 44.2267 41.12 44.0347 41.248 43.992C40.992 43.0533 40.544 42.1147 39.904 41.176C39.264 40.1947 38.688 39.0853 38.176 37.848C37.664 36.6107 37.4507 35.0747 37.536 33.24C37.6213 31.4907 38.0907 29.976 38.944 28.696C39.7973 27.416 40.8853 26.3707 42.208 25.56C43.5733 24.7493 44.9813 24.1947 46.432 23.896C46.7733 23.8107 47.136 23.7467 47.52 23.704C47.904 23.6613 48.288 23.64 48.672 23.64C49.7387 23.64 50.6773 23.768 51.488 24.024C52.3413 24.28 53.0667 24.7067 53.664 25.304C54.304 25.9013 54.624 26.5627 54.624 27.288C54.624 27.7573 54.4747 28.2267 54.176 28.696C54.0907 28.8667 53.9627 29.0373 53.792 29.208C53.6213 29.3787 53.408 29.464 53.152 29.464C52.9813 29.464 52.896 29.336 52.896 29.08C52.896 28.8667 52.9387 28.5893 53.024 28.248C53.152 27.9067 53.2373 27.6933 53.28 27.608C53.3227 27.5227 53.344 27.3733 53.344 27.16C53.344 26.6907 53.216 26.3067 52.96 26.008C52.6613 25.624 52.192 25.3893 51.552 25.304C50.9547 25.2187 50.4 25.176 49.888 25.176C48.3947 25.176 46.9227 25.5813 45.472 26.392C44.0213 27.2027 42.7413 28.248 41.632 29.528C40.5653 30.7653 39.8187 32.088 39.392 33.496C39.264 33.88 39.1787 34.264 39.136 34.648C39.0933 34.9893 39.072 35.3307 39.072 35.672C39.072 37.1653 39.4133 38.5947 40.096 39.96C40.7787 41.3253 41.376 42.584 41.888 43.736C43.0827 43.096 44.1493 42.648 45.088 42.392C45.216 42.3493 45.3227 42.328 45.408 42.328C45.536 42.328 45.6213 42.328 45.664 42.328C45.8773 42.328 45.984 42.392 45.984 42.52C45.984 42.7333 45.7067 42.9467 45.152 43.16C45.024 43.2027 44.704 43.3307 44.192 43.544C43.68 43.7573 43.0613 44.056 42.336 44.44C42.5493 44.9947 42.656 45.528 42.656 46.04C42.656 46.552 42.528 47.0427 42.272 47.512C42.016 47.9813 41.568 48.3653 40.928 48.664C40.288 49.0053 39.6693 49.176 39.072 49.176ZM39.264 47.448C39.3067 47.7467 39.4987 47.8107 39.84 47.64C40.224 47.4693 40.608 47.1707 40.992 46.744C41.376 46.3173 41.568 45.8907 41.568 45.464C41.568 45.3787 41.568 45.2933 41.568 45.208C41.6107 45.08 41.6107 44.952 41.568 44.824C40.928 45.208 40.3733 45.6347 39.904 46.104C39.4347 46.5307 39.2213 46.9787 39.264 47.448ZM60.4585 58.2C59.4772 58.2 58.7305 57.7947 58.2185 56.984C57.7492 56.1733 57.5145 55.2347 57.5145 54.168C57.5145 52.888 57.7492 51.416 58.2185 49.752C58.7305 48.1307 59.3492 46.4667 60.0745 44.76C60.7998 43.0107 61.5465 41.3253 62.3145 39.704C63.1252 38.0827 63.8292 36.632 64.4265 35.352C65.0665 34.072 65.4932 33.0907 65.7065 32.408C65.9625 31.64 66.0905 31.064 66.0905 30.68C66.0905 30.2533 65.9412 30.04 65.6425 30.04C65.3012 30.04 64.7892 30.3173 64.1065 30.872C63.4665 31.384 62.8265 31.96 62.1865 32.6C61.5892 33.24 61.1625 33.7093 60.9065 34.008C59.5412 35.544 58.3038 37.2507 57.1945 39.128C56.1278 41.0053 55.4665 42.6053 55.2105 43.928C55.1678 44.1413 55.0825 44.5253 54.9545 45.08C54.8692 45.6347 54.6772 45.8907 54.3785 45.848C53.9518 45.7627 53.6532 45.5067 53.4825 45.08C53.3545 44.6107 53.2692 44.184 53.2265 43.8C53.2265 43.5867 53.2052 43.3733 53.1625 43.16C53.1625 42.904 53.1625 42.648 53.1625 42.392C53.1625 40.3013 53.3972 37.9333 53.8665 35.288C54.3358 32.6427 54.9332 29.9333 55.6585 27.16C56.4265 24.3867 57.2372 21.8053 58.0905 19.416C58.9438 17.0267 59.7545 15.0427 60.5225 13.464C60.9065 12.696 61.3332 11.9707 61.8025 11.288C62.2718 10.5627 62.7412 10.2 63.2105 10.2C63.5092 10.2 63.7652 10.3493 63.9785 10.648C64.2345 10.9467 64.3625 11.2027 64.3625 11.416C64.3625 11.5867 64.0638 12.2693 63.4665 13.464C62.9118 14.616 62.1865 16.152 61.2905 18.072C60.3945 19.9493 59.4772 22.104 58.5385 24.536C57.6425 26.968 56.8318 29.5707 56.1065 32.344C55.3812 35.1173 54.8905 37.9333 54.6345 40.792C54.6345 40.8347 54.6132 41.048 54.5705 41.432C54.5278 41.816 54.4852 42.2 54.4425 42.584C54.4425 42.968 54.4425 43.16 54.4425 43.16V43.096H54.5065C54.5918 42.584 54.7412 42.0933 54.9545 41.624C55.2105 41.1547 55.4665 40.7067 55.7225 40.28C57.0025 37.72 58.6452 35.2667 60.6505 32.92C61.6318 31.8107 62.6558 30.8507 63.7225 30.04C64.7892 29.1867 65.8985 28.76 67.0505 28.76C67.5198 28.76 67.9252 28.888 68.2665 29.144C68.6078 29.4 68.7785 29.8907 68.7785 30.616C68.7785 31.5547 68.4585 32.664 67.8185 33.944C67.2212 35.1813 66.4745 36.4827 65.5785 37.848C64.7252 39.1707 63.9358 40.4293 63.2105 41.624C62.2292 43.288 61.3332 45.0587 60.5225 46.936C59.7545 48.7707 59.3705 50.6907 59.3705 52.696C59.3705 53.2933 59.4132 53.9333 59.4985 54.616C59.6265 55.2987 59.8185 55.8747 60.0745 56.344C60.3732 56.856 60.7785 57.112 61.2905 57.112C61.6318 57.112 61.9518 57.0053 62.2505 56.792C62.5918 56.6213 62.8692 56.4507 63.0825 56.28C63.4665 55.896 63.7225 55.704 63.8505 55.704C63.9785 55.704 64.0425 55.768 64.0425 55.896C64.0425 56.152 63.9358 56.3867 63.7225 56.6C63.5092 56.856 63.2958 57.048 63.0825 57.176C62.7838 57.432 62.3785 57.6667 61.8665 57.88C61.3972 58.0933 60.9278 58.2 60.4585 58.2ZM74.9465 25.624C74.5625 25.624 74.2852 25.432 74.1145 25.048C73.9865 24.6213 73.9225 24.3227 73.9225 24.152C73.9225 23.4693 74.1145 22.8293 74.4985 22.232C74.9252 21.592 75.3945 21.2507 75.9065 21.208H76.0985C76.6105 21.208 76.9518 21.336 77.1225 21.592C77.3358 21.8053 77.4425 22.0827 77.4425 22.424C77.4425 23.064 77.1652 23.768 76.6105 24.536C76.0558 25.2613 75.5012 25.624 74.9465 25.624ZM71.6825 48.536C70.2318 48.536 69.2505 47.9813 68.7385 46.872C68.2265 45.7627 67.9705 44.4827 67.9705 43.032C67.9705 41.5813 68.1198 40.0667 68.4185 38.488C68.7598 36.8667 69.1225 35.3947 69.5065 34.072C69.9332 32.7493 70.2532 31.8107 70.4665 31.256C70.9358 30.2747 71.4052 29.4427 71.8745 28.76C72.3438 28.0347 72.8558 27.672 73.4105 27.672C73.7945 27.672 74.0718 27.8213 74.2425 28.12C74.4558 28.376 74.5625 28.7173 74.5625 29.144C74.5625 29.9973 74.3278 30.872 73.8585 31.768C73.3892 32.6213 72.9625 33.432 72.5785 34.2C71.7252 35.9493 71.0425 37.5067 70.5305 38.872C70.0612 40.2373 69.8265 41.944 69.8265 43.992C69.8265 45.3147 69.9545 46.2747 70.2105 46.872C70.5092 47.4693 70.9145 47.768 71.4265 47.768C72.1092 47.768 72.8985 47.384 73.7945 46.616C74.6905 45.8053 75.6078 44.7387 76.5465 43.416C77.4852 42.0933 78.3172 40.664 79.0425 39.128C79.5118 38.1467 79.8745 37.656 80.1305 37.656C80.3012 37.656 80.3865 37.8267 80.3865 38.168C80.3865 38.6373 80.1945 39.32 79.8105 40.216C79.4692 41.0693 79.0425 41.944 78.5305 42.84C78.0612 43.736 77.6132 44.44 77.1865 44.952C76.4612 45.8907 75.6292 46.7227 74.6905 47.448C73.7518 48.1733 72.7492 48.536 71.6825 48.536ZM84.2945 57.24C83.8678 57.24 83.4198 56.9627 82.9505 56.408C82.5238 55.896 82.1185 55.1707 81.7345 54.232C81.0945 52.696 80.6465 51.0747 80.3905 49.368C80.1345 47.704 80.0065 46.0187 80.0065 44.312C80.0065 42.4347 80.1345 40.6 80.3905 38.808C80.6465 37.016 80.9238 35.3947 81.2225 33.944C81.4358 32.92 81.6918 31.832 81.9905 30.68C82.2892 29.528 82.5665 28.6107 82.8225 27.928C82.5665 27.9707 82.1612 28.12 81.6065 28.376C81.0518 28.632 80.4758 28.888 79.8785 29.144C79.3238 29.4 78.8332 29.528 78.4065 29.528C77.7665 29.528 77.4465 29.1653 77.4465 28.44C77.4465 28.056 77.5745 27.7147 77.8305 27.416C78.1292 27.1173 78.4918 26.8827 78.9185 26.712C79.7718 26.328 80.7105 26.0507 81.7345 25.88C82.7585 25.6667 83.4412 25.4533 83.7825 25.24L85.4465 21.016C85.6172 20.5893 85.9158 19.9067 86.3425 18.968C86.8118 17.9867 87.3452 16.9413 87.9425 15.832C88.5825 14.7227 89.2012 13.72 89.7985 12.824C90.2678 12.1413 90.7158 11.608 91.1425 11.224C91.5692 10.7973 92.0385 10.584 92.5505 10.584C93.3185 10.584 93.7025 10.8827 93.7025 11.48C93.7025 11.8213 93.5532 12.3333 93.2545 13.016C92.9985 13.6987 92.5078 14.5947 91.7825 15.704C90.9718 16.984 90.1398 18.264 89.2865 19.544C88.4758 20.7813 87.7718 22.0827 87.1745 23.448C87.1318 23.6187 87.0252 23.896 86.8545 24.28C86.7265 24.6213 86.6198 24.8347 86.5345 24.92L87.8145 24.728C88.1558 24.6853 88.5398 24.664 88.9665 24.664C89.3932 24.6213 89.8625 24.6 90.3745 24.6C91.0998 24.6 91.7825 24.6427 92.4225 24.728C93.1052 24.7707 93.6598 24.8773 94.0865 25.048C94.2998 25.1333 94.4918 25.24 94.6625 25.368C94.8758 25.4533 94.9825 25.5387 94.9825 25.624C94.9825 25.7947 94.4278 25.88 93.3185 25.88C92.6785 25.88 91.7612 25.9867 90.5665 26.2C89.4145 26.4133 88.0918 26.7547 86.5985 27.224C85.8732 27.4373 85.3825 27.736 85.1265 28.12C84.8705 28.504 84.5292 29.4213 84.1025 30.872C83.4625 33.176 82.9505 35.3947 82.5665 37.528C82.1825 39.6187 81.8838 41.752 81.6705 43.928C81.6278 44.3547 81.5852 44.8027 81.5425 45.272C81.5425 45.7413 81.5425 46.2533 81.5425 46.808C81.5425 48.2587 81.6705 49.7733 81.9265 51.352C82.2252 52.9307 82.6518 54.296 83.2065 55.448C83.3345 55.704 83.4625 55.9387 83.5905 56.152C83.7612 56.3653 83.9532 56.5147 84.1665 56.6C84.4652 56.728 84.6145 56.8773 84.6145 57.048C84.6145 57.176 84.5078 57.24 84.2945 57.24ZM91.7165 46.488C90.9485 46.488 90.3938 46.168 90.0525 45.528C89.7112 44.8453 89.5405 44.056 89.5405 43.16C89.5405 42.008 89.7325 40.664 90.1165 39.128C90.5432 37.592 91.0978 36.0133 91.7805 34.392C92.4632 32.728 93.2312 31.2133 94.0845 29.848C94.9805 28.44 95.9192 27.3093 96.9005 26.456C97.8818 25.56 98.8418 25.112 99.7805 25.112C100.634 25.112 101.359 25.496 101.957 26.264C102.597 26.9893 102.917 27.8213 102.917 28.76C102.917 29.3147 102.831 29.784 102.661 30.168C102.49 30.5093 102.298 30.68 102.085 30.68C101.914 30.68 101.765 30.552 101.637 30.296C101.21 29.3147 100.741 28.6107 100.229 28.184C99.7592 27.7573 99.2685 27.544 98.7565 27.544C97.9032 27.544 97.0498 28.0347 96.1965 29.016C95.3858 29.9547 94.7245 31.0427 94.2125 32.28C93.7858 33.2187 93.3805 34.3493 92.9965 35.672C92.6552 36.952 92.3565 38.232 92.1005 39.512C91.8872 40.7493 91.7805 41.7733 91.7805 42.584C91.7805 44.0347 92.1218 44.76 92.8045 44.76C93.6578 44.76 94.7458 43.8213 96.0685 41.944C97.0498 40.5787 97.9245 39 98.6925 37.208C99.5032 35.416 100.186 33.8587 100.741 32.536C100.954 32.1093 101.189 31.832 101.445 31.704C101.701 31.576 101.935 31.512 102.149 31.512C102.661 31.512 102.981 31.7253 103.109 32.152C103.279 32.5787 103.365 32.9413 103.365 33.24C103.365 34.3493 103.258 35.352 103.045 36.248C102.831 37.1013 102.725 38.1467 102.725 39.384C102.725 40.28 102.789 41.112 102.917 41.88C103.087 42.6053 103.365 42.968 103.749 42.968C104.218 42.968 104.815 42.3707 105.541 41.176C105.711 40.8347 105.967 40.664 106.309 40.664C106.693 40.664 106.885 40.856 106.885 41.24C106.885 41.7947 106.501 42.392 105.733 43.032C104.965 43.6293 104.197 43.928 103.429 43.928C102.405 43.928 101.679 43.5013 101.253 42.648C100.527 41.24 100.165 39.9813 100.165 38.872C100.165 37.72 100.143 36.9307 100.101 36.504C99.8872 37.016 99.4818 37.8267 98.8845 38.936C98.2872 40.0027 97.5832 41.1333 96.7725 42.328C95.9618 43.48 95.1085 44.4613 94.2125 45.272C93.3165 46.0827 92.4845 46.488 91.7165 46.488Z" stroke="url(#paint0_linear)" stroke-width="3"/>
+            <defs>
+          
+           
+            
+              <linearGradient
+              id="paint0_linear"
+              x1="205.549"
+              y1="20.0169"
+              x2="204.338"
+              y2="342.461"
+              gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#1595B6" />
+                <stop offset="1" stop-color="#1F2667" stop-opacity="0"  />
+              </linearGradient>
+            </defs>
+          </svg> -->
+          
+          <div class="relative ml-4 md:ml-12">
+            <h1
+              class="pointer-events-none text-4xl md:text-[64px] font-['Spartan'] mr-12"
+            >
+              Ishita Gupta
+            </h1>
+            <p
+              class="pointer-events-none font-['Merriweather'] italic my-4 md:my-8"
+            >
+              MERN Stack Developer
+            </p>
+            <button
+              class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group"
+            >
+              About Me
+
+              <svg
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                version="1.1"
+                x="0px"
+                y="0px"
+                width="44"
+                height="44"
+                viewBox="0 0 100 100"
+                class="absolute top-1/2 -translate-y-1/2 -right-7 group-hover:-right-8 ease-in-out duration-100"
+              >
+                <g transform="translate(0,-952.36218)">
+                  <path
+                    style="
+                      text-indent: 0;
+                      text-transform: none;
+                      direction: ltr;
+                      block-progression: tb;
+                      baseline-shift: baseline;
+                      color: #000000;
+                      enable-background: accumulate;
+                    "
+                    d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                    fill="#fff"
+                    fill-opacity="1"
+                    stroke="white"
+                    stroke-width="2"
+                    marker="none"
+                    visibility="visible"
+                    display="inline"
+                    overflow="visible"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <ul class="ml-auto space-y-6 text-[#b0b2c3] absolute right-8">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ishita-gupta-306020193/"
+              target="_blank"
+            >
+              <svg
+                class="w-7 hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/Ishiyyyyyyy" target="_blank">
+              <svg
+                class="w-7 hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/ig.shrylox/">
+              <svg
+                class="w-7 hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ishitagupta9901@gmail.com" target="_blank">
+              <svg
+                class="w-7 hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@ShryloxLive">
+              <svg
+                class="w-7 hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                fill="currentColor"
+              >
+                <path
+                  d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="relative self-center after:content-[''] after:absolute after:w-[2px] after:h-5 after:bg-[#444] after:left-1/2 after:-translate-x-1/2 after:top-[100px]"
+      >
+      <button
+      id="latest-works-button"
+      class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group mb-20"
+    >
+      Latest Works
+    
+      <svg
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:cc="http://creativecommons.org/ns#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        version="1.1"
+        x="0px"
+        y="0px"
+        width="44"
+        height="44"
+        viewBox="0 0 100 100"
+        class="absolute rotate-90 left-1/2 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100"
+      >
+        <g transform="translate(0,-952.36218)">
+          <path
+            style="
+              text-indent: 0;
+              text-transform: none;
+              direction: ltr;
+              block-progression: tb;
+              baseline-shift: baseline;
+              color: #000000;
+              enable-background: accumulate;
+            "
+            d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+            fill="#fff"
+            fill-opacity="1"
+            stroke="white"
+            stroke-width="2"
+            marker="none"
+            visibility="visible"
+            display="inline"
+            overflow="visible"
+          />
+        </g>
+      </svg>
+    </button>
+      </div>
+    </section>
+ <section class="max-w-screen-xl mx-auto px-4 relative pb-8 sm:pb-16">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-b-2 border-[#1788ae]"
+      >
+        Latest Works
+      </h2>
+      <div
+      id="target-element"
+        class="flex flex-col sm:flex-row gap-4 mt-8 sm:gap-[80px] items-center sm:mt-20 relative"
+      >
+        <div
+          class="h-[1px] left-1/4 right-1/2 bg-[#1788ae] absolute top-1/2 hidden sm:block"
+        ></div>
+        <div
+          class="w-4 h-4 rounded-full border-[3px] border-[#459bd5] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"
+        ></div>
+        <a
+          href="https://github.com/ishitaaagupta/Tree-Crown-Detection"
+          class="flex w-full relative justify-center sm:justify-start"
+        >
+          <div
+            class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200"
+          >
+            <img
+              class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(59,130,246,0.6)]"
+              src="./assets/images/tree_crown.jpg"
+              alt=""
+            />
+            <span
+              class="flex group-hover:-top-14 ease-jump duration-200 bg-[#459bd5] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2"
+              >Tree-Crown-Detection
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-external-link"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-[#459bd5] font-bold text-2xl md:text-4xl">
+            Tree-Crown-Detection
+          </h3>
+          <span class="text-[#459bd5] text-base md:text-lg"
+            >(Deep Learning )</span
+          >
+          <p class="text-justify text-sm md:text-base mt-2">
+             Tree identification and mapping is important for forest monitoring and management, conservation and biodiversity activities but still raises many technical challenges. The project uses CNNs to analyze satellite imagery for tree detection and classification, to distinguish trees from other Vegetation and Land cover types
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Nlp
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Python
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Deep learning
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Machine learning
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #scikit learn
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Kaggle
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Pytorch
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Numpy
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #tensorflow
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative"
+      >
+        <div class="order-2 sm:order-1 w-full">
+          <h3 class="text-[#ffe578] font-bold text-2xl md:text-4xl">
+            Building-FootPrint-Extraction
+          </h3>
+          <span class="text-[#ffe578] text-base md:text-lg"
+            >(Deep Learning)</span
+          >
+          <p class="text-justify text-sm md:text-base mt-2">
+            Accurate delineation of building boundaries is essential for urban planning, infrastructure development, and disaster management. By utilizing CNNs, we predict the locations of building edges and translate these predictions into detailed building outlines.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Matplotlib
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Scikit-learn
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #PyTorch
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #NumPy
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Pandas
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #TensorFlow
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Pandas
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Deep-Learning
+            </li>
+            <li
+              class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #Artificial intelligence
+            </li>
+          </ul>
+        </div>
+        <div
+          class="h-[1px] left-1/2 right-1/4 bg-[#1788ae] absolute top-1/2 hidden sm:block"
+        ></div>
+        <div
+          class="w-4 h-4 rounded-full border-[3px] border-[#ffe578] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"
+        ></div>
+        <a
+          href="#"
+          class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start"
+        >
+          <div
+            class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto"
+          >
+            <img
+              class="max-w-[400px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(59,130,246,0.6)]"
+              src="./assets/images/buildding.jpg"
+              alt=""
+            />
+            <span
+              class="flex group-hover:-top-14 ease-jump duration-200 text-black bg-[#ffe578] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2"
+              >Building-FootPrint-Extraction
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-external-link"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+      </div>
+      </div>
+      <div
+        class="w-[2px] hidden sm:block bg-[#1788ae] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+      ></div>
+    </section>
+    <section class="max-w-screen-xl mx-auto pb-12">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] sm:w-max relative z-10 font-bold px-4 py-2 mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md"
+      >
+        What my mentor says?
+      </h2>
+      <div class="swiper mySwiper !py-14">
+        <div class="swiper-wrapper items-center">
+          <div class="swiper-slide px-4">
+            <div
+              class="flex flex-col md:flex-row w-full md:max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab"
+            >
+              <img
+                class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+                src="/assets/images/sneha.jpeg"
+                alt="mca"
+              />
+              <div
+                class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
+              >
+                <p class="text-sm md:text-base mb-2">
+                  “Ishita is a dedicated and skilled professional who consistently strives to deliver high-quality results. With a Master's in Computer Applications from Banasthali Vidyapith, her technical expertise is well-grounded. Her professional journey has been enriched by valuable experiences, set against scenic nature and clouds, creating an inspiring environment for growth and learning”
+                </p>
+                <h2
+                  class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
+                >
+                 Sneha ASopa
+                </h2>
+                <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                 Assitant Professor
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide px-4">
+            <div
+              class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab"
+            >
+              <img
+                class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+                src="/assets/images/ganesh.jpeg"
+                alt="nic"
+              />
+              <div
+                class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
+              >
+                <p class="text-sm md:text-base mb-2">
+                  “Ishita Gupta is a highly dedicated individual who demonstrates a profound understanding of complex technical concepts. She has independently undertaken all research and implementation work with remarkable diligence and focus. The results presented in her thesis showcase her original research contributions, marking an inspiring advancement in her field. The thesis represents her exclusive work, ensuring that its contents are unique to her and are not a basis for any other degree or recognition, for either herself or others ”
+                </p>
+                <h2
+                  class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
+                >
+                  Dr.Ganesh Khadanga
+                </h2>
+                <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                  Scientist 'F'
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide px-4">
+            <div
+              class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab"
+            >
+              <img
+                class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+                src="/assets/images/drishti.jpeg"
+                alt="testimonial 3"
+              />
+              <div
+                class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
+              >
+                <p class="text-sm md:text-base mb-2">
+                  “I worked with Ishita to make my website. I am speechless by
+                  looking at her work ethic and dedication. Working with her was
+                  the best decision I made.”
+                </p>
+                <h2
+                  class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
+                >
+                  Drishti Sharma
+                </h2>
+                <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                  Apprentice @ BOA
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto px-4 pb-12">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md"
+      >
+        Let's Connect
+      </h2>
+      <div class="flex flex-col md:flex-row items-center mt-10">
+        <div class="w-full">
+          <img src="./assets/images/contact-me.svg" alt="phone" />
+        </div>
+        <form class="w-full" name="contactUS" netlify>
+          <label
+            for="name"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Name</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Enter your name"
+            />
+          </div>
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Your Email</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 16"
+              >
+                <path
+                  d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"
+                />
+                <path
+                  d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="name@gmail.com"
+            />
+          </div>
+          <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Message</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            ></div>
+            <textarea
+              id="message"
+              name="message"
+              rows="8"
+              class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full text-white bg-[#1788ae] hover:bg-[#1280a4] focus:ring-4 focus:ring-[#4489a0] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+    <footer class="flex flex-col items-center pb-10">
+      <p class="text-xs text-gray-300">Ishita Gupta © 2024</p>
+     
+      <div class="black-logo my-4">
+        
+          
+      </div>
+      <ul class="mx-auto flex items-center justify-center gap-6 text-[#b0b2c3]">
+        <li>
+          <a href="https://www.linkedin.com/in/ishita-gupta-306020193" target="_blank">
+            <svg
+              class="w-5 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/Ishiyyyyyyy" target="_blank">
+            <svg
+              class="w-5 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/ig.shrylox/">
+            <svg
+              class="w-5 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:ishitagupta9901@gmail.com" target="_blank">
+            <svg
+              class="w-5 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@ShryloxLive">
+            <svg
+              class="w-5 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+              fill="currentColor"
+            >
+              <path
+                d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"></script>
+    <script src="https://cdn/jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
+    <script>
+      document.getElementById('latest-works-button').onclick = function() {
+        document.getElementById('target-element').scrollIntoView({behavior: "instant", block: "end"});
+      };
+    </script>
+  </body>
+</html>

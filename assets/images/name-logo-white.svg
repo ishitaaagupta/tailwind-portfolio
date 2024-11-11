@@ -1,0 +1,7 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Cursive stem of "i" with a thick, smooth curve -->
+    <path d="M50 60 C45 45, 55 30, 50 20" stroke="white" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Dot of "i" in a cursive, rounded style -->
+    <circle cx="50" cy="10" r="5" fill="white" />
+</svg>
